@@ -7,9 +7,13 @@
     <title>Status Page</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" async></script>
-    
+    <?php require __DIR__ . '/vendor/autoload.php'; ?>
 </head>
 <body>
+    <?php
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+    ?>
     Lorem ipsum
     <span id="local-time"></span>
 </body>
