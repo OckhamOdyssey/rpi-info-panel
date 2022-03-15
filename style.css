@@ -2,6 +2,7 @@ body {
     background-color: black;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 30px;
 }
 #flexbox {
     display: flex;
@@ -12,5 +13,9 @@ body {
 }
 #weather-box {
     width: 40%;
-    height: 100%;
+}
+#hour-and-button {
+    font-size: 5rem;
+    text-align: center;
+    width: 60%;
 }
