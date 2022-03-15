@@ -3,3 +3,14 @@ body {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+#flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    height: 100vh;
+}
+#weather-box {
+    width: 40%;
+    height: 100%;
+}
