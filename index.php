@@ -15,7 +15,7 @@
         require __DIR__ . '/vendor/autoload.php'; 
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
         $dotenv->load();
-        $googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $_ENV['CITY'] . "&lang=en&units=metric&APPID=" . $_ENV['APIKEY'];
+        $googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $_ENV['CITY'] . "&lang=es&units=metric&APPID=" . $_ENV['APIKEY'];
 
         $ch = curl_init();
 
@@ -53,8 +53,5 @@
             <span id="local-time"></span>
         </div> 
     </div>
-    Lorem ipsum
-    <span id="local-time"></span>
-
 </body>
 </html>

@@ -2,20 +2,20 @@ body {
     background-color: black;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 30px;
 }
 #flexbox {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     flex-flow: row nowrap;
+    padding: 30px 30px 0;
     height: 100vh;
 }
 #weather-box {
-    width: 40%;
+    width: 50%;
 }
 #hour-and-button {
     font-size: 5rem;
     text-align: center;
-    width: 60%;
+    width: 50%;
 }
