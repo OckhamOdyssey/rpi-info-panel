@@ -15,7 +15,7 @@
         require __DIR__ . '/vendor/autoload.php'; 
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
         $dotenv->load();
-        $googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $_ENV['CITY'] . "&lang=es&units=metric&APPID=" . $_ENV['APIKEY'];
+        $googleApiUrl = "http://api.openweathermap.org/data/2.5/onecall?lat=" . $_ENV['LAT'] . "&lon=". $_ENV['LON'] . "&lang=es&units=metric&APPID=" . $_ENV['APIKEY'];
 
         $ch = curl_init();
 
@@ -35,24 +35,18 @@
 <body>
     <div id="flexbox">
         <div id="weather-box">
-            <span class="weather-title"><?php echo ucwords($data->weather[0]->description)?> <?php echo round($data->main->temp,0); ?>°C</span>
+            <span class="weather-title"><?php echo ucwords($data->current->weather[0]->description)?> <?php echo round($data->current->temp,0); ?>°C</span>
             <img
-                src="http://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
+                src="http://openweathermap.org/img/w/<?php echo $data->current->weather[0]->icon; ?>.png"
                 class="weather-icon"
             />
             <span class="weather-more-info">
-                <p>Humedad:</p>
-                <p>Sensación térmica:</p>
-                <p>Probabilidad de lluvia:</p>
-            <?php print_r($data) ?>
-            <div class="weather-forecast">
-                
-                <?php echo $data->main->temp_max; ?>°C
-            </div>
-            <div class="time">
-                <div>Humidity: <?php echo $data->main->humidity; ?> %</div>
-             <div>Wind: <?php echo $data->wind->speed; ?> km/h</div>
-            </div>
+                <p>Temperatura máxima: <?php echo round($data->daily[0]->temp->max,0)?>°C</p>
+                <p>Temperatura mínima: <?php echo round($data->daily[0]->temp->min,0)?>°C</p>
+                <p>Humedad: <?php echo $data->current->humidity?>%</p>
+                <p>Sensación térmica: <?php echo round($data->current->feels_like,0)?>°C</p>
+                <p>Probabilidad de lluvia (1h): <?php echo round((float)$data->hourly[0]->pop * 100 ) . '%'; ?></p>
+                <p>Probabilidad de lluvia (hoy): <?php echo round((float)$data->daily[0]->pop * 100 ) . '%'; ?></p>
         </div>
         <div id="hour-and-button">
             <span id="local-time"></span>
