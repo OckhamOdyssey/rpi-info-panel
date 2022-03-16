@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <?php
-    // Get weather info with OWM API
+    // Get weather info from OWM API
     // Código de https://programacion.net/articulo/pronostico_del_tiempo_utilizando_openweathermap_mediante_php_2035
         require __DIR__ . '/vendor/autoload.php'; 
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -35,14 +35,19 @@
 <body>
     <div id="flexbox">
         <div id="weather-box">
-            <div class="time">
-                <?php print_r($data) ?>
-                <div><?php echo ucwords($data->weather[0]->description); ?></div>
-            </div>
+            <span class="weather-title"><?php echo ucwords($data->weather[0]->description)?> <?php echo round($data->main->temp,0); ?>°C</span>
+            <img
+                src="http://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
+                class="weather-icon"
+            />
+            <span class="weather-more-info">
+                <p>Humedad:</p>
+                <p>Sensación térmica:</p>
+                <p>Probabilidad de lluvia:</p>
+            <?php print_r($data) ?>
             <div class="weather-forecast">
-                <img
-                    src="http://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
-                    class="weather-icon" /> <?php echo $data->main->temp_max; ?>°C
+                
+                <?php echo $data->main->temp_max; ?>°C
             </div>
             <div class="time">
                 <div>Humidity: <?php echo $data->main->humidity; ?> %</div>

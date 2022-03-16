@@ -3,6 +3,13 @@ body {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.weather-title {
+    display: block;
+    font-size: 3.5rem;
+}
+.weather-icon {
+    width: 200px;
+}
 #flexbox {
     display: flex;
     flex-direction: row;
