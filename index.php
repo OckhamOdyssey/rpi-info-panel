@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <?php
+    // Get weather info with OWM API
+    // Código de https://programacion.net/articulo/pronostico_del_tiempo_utilizando_openweathermap_mediante_php_2035
         require __DIR__ . '/vendor/autoload.php'; 
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
         $dotenv->load();
-        // echo $_ENV['APIKEY']
         $googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $_ENV['CITY'] . "&lang=en&units=metric&APPID=" . $_ENV['APIKEY'];
 
         $ch = curl_init();
@@ -34,10 +35,8 @@
 <body>
     <div id="flexbox">
         <div id="weather-box">
-            <h2><?php echo $data->name; ?> Weather Status</h2>
             <div class="time">
-                <div><?php echo date("l g:i a", $currentTime); ?></div>
-                <div><?php echo date("jS F, Y",$currentTime); ?></div>
+                <?php print_r($data) ?>
                 <div><?php echo ucwords($data->weather[0]->description); ?></div>
             </div>
             <div class="weather-forecast">
