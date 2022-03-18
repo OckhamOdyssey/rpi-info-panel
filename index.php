@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Actualiza la página cada 5 horas -->
-    <meta http-equiv="refresh" content="18000" > 
+    <!-- Actualiza la página cada 30 minutos -->
+    <meta http-equiv="refresh" content="1800" > 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,6 +50,15 @@
         </div>
         <div id="hour-and-button">
             <span id="local-time"></span>
+            <p>La página se recargará en <span id="countdown"></span>.</p> <button id="reload" onclick=location.reload()>Recargar</button>
+            <?php
+                if(isset($_POST['button1'])) {
+                    shell_exec('exec vcgencmd display_power 0');
+                }
+            ?>
+            <form method="post">
+                <input type="submit" name="button1" value="button1"/>
+            </form>
         </div> 
     </div>
 </body>

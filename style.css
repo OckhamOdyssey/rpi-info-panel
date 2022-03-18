@@ -16,12 +16,12 @@ body {
     flex-wrap: nowrap;
     flex-flow: row nowrap;
     padding: 30px 30px 0;
-    height: 100vh;
 }
 #weather-box {
     width: 50%;
 }
-#hour-and-button {
+#local-time {
+    display: block;
     font-size: 5rem;
     text-align: center;
     width: 50%;
