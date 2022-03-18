@@ -57,7 +57,7 @@
                 }
             ?>
             <form method="post">
-                <input type="submit" name="button1" value="button1"/>
+                <input type="submit" name="button1" value="Apagar pantalla"/>
             </form>
         </div> 
     </div>
